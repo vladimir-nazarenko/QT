@@ -28,8 +28,10 @@ private:
     Missle* missle;
     QGraphicsScene scene;
     int lastAmount;
-    QTimer timer;
+    QTimer* timer;
     void drawItems();
+    void clearMissle();
+    QPoint dir;
 
 private slots:
     void rotateGun(int diff);

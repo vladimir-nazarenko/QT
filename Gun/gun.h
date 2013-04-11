@@ -10,15 +10,13 @@ class Gun : public QGraphicsItem
 public:
     Gun(QGraphicsScene & parent);
     virtual void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
-    virtual void rotate(qreal angle, QGraphicsScene& scene);
+    virtual void rotate(qreal angle);
     virtual QRectF boundingRect() const;
-    int getAngle();
-    QPoint getMissleStartPoint();
+    QPoint getMissleStartPoint() const;
 
 private:
-    qreal angle;
+    qreal currentAngle;
     qreal size;
     qreal difAngle;
     qreal kLength;
-    QGraphicsScene parent; 
 };
