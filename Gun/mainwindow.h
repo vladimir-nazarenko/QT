@@ -5,7 +5,7 @@
 #include <qgraphicsscene.h>
 #include "gun.h"
 #include "missle.h"
-#include "aim.h"
+#include "target.h"
 #include <qtimer.h>
 
 namespace Ui {
@@ -24,17 +24,20 @@ private:
     void setScene();
     Ui::MainWindow *ui;
     Gun* gun;
-    Aim* aim;
     Missle* missle;
     QGraphicsScene scene;
     int lastAmount;
     QTimer* timer;
     void drawItems();
     void clearMissle();
-    QPoint dir;
+    QPointF dir;
+    qreal power;
+    Target* aim;
 
 private slots:
     void rotateGun(int diff);
     void bang();
     void changeMisslePosition();
+    void setPower(int newValue);
+    void setTarget();
 };

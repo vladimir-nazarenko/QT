@@ -13,6 +13,7 @@ public:
     virtual void rotate(qreal angle);
     virtual QRectF boundingRect() const;
     QPoint getMissleStartPoint() const;
+    qreal getAngle();
 
 private:
     qreal currentAngle;

@@ -63,3 +63,8 @@ QPoint Gun::getMissleStartPoint() const
     transform.translate(kLength * size, 0);
     return transform.map(QPoint(0, 0));
 }
+
+qreal Gun::getAngle()
+{
+    return 90 - this->currentAngle;
+}

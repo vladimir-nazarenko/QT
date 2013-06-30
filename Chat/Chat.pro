@@ -1,26 +1,23 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-03-22T00:11:47
+# Project created by QtCreator 2013-06-29T12:04:30
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Gun
+TARGET = Chat
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    gun.cpp \
-    missle.cpp \
-    target.cpp
+    dialog.cpp
 
 HEADERS  += mainwindow.h \
-    gun.h \
-    missle.h \
-    target.h
+    dialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    mainwindow.ui

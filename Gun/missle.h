@@ -1,6 +1,4 @@
 #pragma once
-
-#include <qgraphicsscene.h>
 #include <qgraphicsitem.h>
 
 class Missle : public QGraphicsItem
@@ -10,7 +8,6 @@ public:
     virtual ~Missle();
     virtual void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
     virtual QRectF boundingRect() const;
-
 
 private:
     qreal xSize;
