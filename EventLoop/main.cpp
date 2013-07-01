@@ -6,13 +6,12 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    QEventLoop* loop = new QEventLoop();
+    std::cout << "it was printed, omg";
     TimerShell *sh = new TimerShell();
-    QObject::connect(sh, SIGNAL(readyToFinish()), loop, SLOT(quit()));
-    loop->exec();
-    delete loop;
+    QObject::connect(sh, SIGNAL(readyToFinish()), &a, SLOT(quit()));
+    a.exec();
+
     delete sh;
     std::cout << "ololo it works";
-    //return a.exec();
     return 0;
 }

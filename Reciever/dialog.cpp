@@ -11,7 +11,7 @@ Dialog::Dialog(QWidget *parent) :
     connect(socket, SIGNAL(connected()), this, SLOT(onSockConnected()));
     connect(socket, SIGNAL(disconnected()), this, SLOT(onSockDisconnected()));
     connect(socket, SIGNAL(readyRead()), this, SLOT(onSockReadyRead()));
-    connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(onSockDisplayError(QAbstractSocket::SocketError)));
+    //connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(onSockDisplayError(QAbstractSocket::SocketError)));
 }
 
 Dialog::~Dialog()
@@ -22,7 +22,8 @@ Dialog::~Dialog()
 void Dialog::onSockConnected()
 {
     QByteArray block;
-    QDataStream out(&block, QIODevice::ReadOnly);
+    QDataStream out(&block, QIODevice::WriteOnly);
+    ui->tbMessage->setText("omg I DID IT!!!");
     out << "This is spartaaaa!!1";
     socket->write(block);
 }

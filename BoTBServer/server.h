@@ -7,7 +7,7 @@
 #include <iostream>
 #include <QTimer>
 
-class Server:public QObject
+class Server:public QTcpServer
 {
     Q_OBJECT
 
@@ -17,14 +17,20 @@ public:
 
     void start();
 
+signals:
+    void serverStopped();
+
 public slots:
     void onConnect();
     void onDisconnect();
     void onReadyRead();
     void onTimerTimeout();
+    void onError();
 private:
     QTcpSocket *socket;
     QTimer *ticker;
+protected:
+    void incomingConnection(qintptr desc);
 };
 
 #endif // SERVER_H

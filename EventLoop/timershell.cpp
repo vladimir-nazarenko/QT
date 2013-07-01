@@ -14,13 +14,7 @@ void TimerShell::onTimerTick()
 {
     static int counter;
     std::cout << ".";
-    std::flush();
     counter++;
     if (counter > 10)
         emit readyToFinish();
-}
-
-void TimerShell::arrrriva()
-{
-
 }

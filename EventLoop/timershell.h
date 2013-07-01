@@ -14,7 +14,6 @@ signals:
     
 public slots:
     void onTimerTick();
-    void arrrriva();
 signals:
     void readyToFinish();
 private:

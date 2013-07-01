@@ -12,7 +12,7 @@ TimerShell::TimerShell(QObject *parent) :
 
 void TimerShell::onTimerTick()
 {
-   // static int counter;
+    static int counter;
     std::cout << ".";
    // counter++;
    // if (counter > 10)

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core network declarative
+QT       += core network declarative help
 
 QT       -= gui
 
