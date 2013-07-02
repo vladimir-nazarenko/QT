@@ -8,32 +8,36 @@
 #include <QTimer>
 #include "client.h"
 
+// I wonder what this blue label do?
+class Client;
+
 class Server:public QTcpServer
 {
-    Q_OBJECT
+	Q_OBJECT
 
-    static const Color cMToAll = Qt::green;
-    static const Color cEvent = Qt::black;
+	static const Qt::GlobalColor cMToAll = Qt::green;
+	static const Qt::GlobalColor cEvent = Qt::black;
 
 public:
-    Server(QString hostAdress, quint16 port);
-    virtual ~Server();
+	Server(QString hostAdress, quint16 port);
+	virtual ~Server();
 
-    void start();
+	void start();
 
 signals:
-    void serverStopped();
-    void addToLog(QString message, Color color);
+	void serverStopped();
+	void addToLog(QString message, Qt::GlobalColor color);
 
 public slots:
-    void onIncomingMessage(quint8 command, QString message);
-    void onError();
+	void onIncomingMessage(Client *client, quint8 command, QString message);
+	void onError();
 private:
-    QList<Client*> *clients;
-    QHostAddress host;
-    quint16 port;
+	bool nameIsValid(QString name);
+	QList<Client* > *clients;
+	QHostAddress _host;
+	quint16 _port;
 protected:
-    void incomingConnection(qintptr desc);
+	void incomingConnection(qintptr desc);
 };
 
 #endif // SERVER_H
