@@ -1,5 +1,7 @@
 #include "client.h"
 
+const QString Client::hostName = "127.0.0.1";
+
 Client::Client(qintptr desc)
 {
     socket = new QTcpSocket();
@@ -9,6 +11,10 @@ Client::Client(qintptr desc)
     connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(onError(QAbstractSocket::SocketError)));
 
     socket->setSocketDescriptor(desc);
+}
+
+Client::~Client()
+{
 }
 
 
@@ -36,9 +42,9 @@ void Client::onReadyRead()
     if (socket->bytesAvailable() < (int)blockSize)
         return;
 
-    Command com;
-    in >> com;
+    quint8 command;
+    in >> command;
     QString mes;
     in >> mes;
-    emit incomingMessage(com, mes);
+    emit incomingMessage(command, mes);
 }
