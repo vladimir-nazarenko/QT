@@ -11,6 +11,11 @@ Server::Server(QString host, quint16 port):
 
 Server::~Server()
 {
+	foreach (Client* client, *clients) {
+		delete client;
+	}
+
+	delete clients;
 }
 
 void Server::start()
@@ -25,6 +30,9 @@ void Server::incomingConnection(qintptr desc)
 {
 	Client *newClient = new Client(desc);
 	connect(newClient, SIGNAL(incomingMessage(Client*, quint8 ,QString)), this, SLOT(onIncomingMessage(Client*, quint8 ,QString)));
+	connect(newClient, SIGNAL(occuredError(Client*, QAbstractSocket::SocketError)),
+			this, SLOT(onError(Client*, QAbstractSocket::SocketError)));
+	connect(newClient, SIGNAL(disconnected(Client*)), this, SLOT(clientDisconnected(Client*)));
 	clients->append(newClient);
 }
 
@@ -71,8 +79,14 @@ void Server::onIncomingMessage(Client* client, quint8 command, QString message)
 
 }
 
-void Server::onError()
+void Server::onError(Client*, QAbstractSocket::SocketError error)
 {
+	addToLog(QString(error), Qt::red);
+}
+
+void Server::clientDisconnected(Client *client)
+{
+	clients->removeAt(clients->indexOf(client));
 }
 
 bool Server::nameIsValid(QString name)

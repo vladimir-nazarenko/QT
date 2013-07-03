@@ -25,12 +25,14 @@ public:
 	void sendMessage(QStringList &message) const;
 
 signals:
-	void incomingMessage(Client* client, quint8 command, QString message);
+	void incomingMessage(Client *client, quint8 command, QString message);
+	void occuredError(Client *client, QAbstractSocket::SocketError error);
+	void disconnected(Client *client);
 private slots:
-	void onConnect();
 	void onDisconnect();
 	void onError(QAbstractSocket::SocketError error);
 	void onReadyRead();
+	void onConnect();
 
 private:
 	QTcpSocket *socket;

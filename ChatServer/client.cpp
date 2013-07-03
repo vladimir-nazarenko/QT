@@ -15,6 +15,7 @@ Client::Client(qintptr desc)
 
 Client::~Client()
 {
+	delete socket;
 }
 
 void Client::sendMessage(QString &message) const
@@ -36,14 +37,17 @@ void Client::sendMessage(QStringList &message) const
 
 void Client::onConnect()
 {
+	// Clent already connected
 }
 
 void Client::onDisconnect()
 {
+	emit disconnected(this);
 }
 
 void Client::onError(QAbstractSocket::SocketError error)
 {
+	emit occuredError(this, error);
 }
 
 void Client::onReadyRead()

@@ -30,7 +30,8 @@ signals:
 
 public slots:
 	void onIncomingMessage(Client *client, quint8 command, QString message);
-	void onError();
+	void onError(Client*, QAbstractSocket::SocketError error);
+	void clientDisconnected(Client* client);
 private:
 	bool nameIsValid(QString name);
 	QList<Client* > *clients;
