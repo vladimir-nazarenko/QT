@@ -22,5 +22,5 @@ script:
     - cd build
     - cmake ..
     - make -j
-    - make install
+    - sudo make install
     - vera++ --root . -R get_all_subDirs *
