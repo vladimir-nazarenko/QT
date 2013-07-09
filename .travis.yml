@@ -6,7 +6,7 @@ install:
   - sudo apt-get update
   - sudo apt-get install qt-sdk libqt5svg5-dev qttools5-dev -y
   
-  script:
+script:
     - git clean -dfx
     - qmake Gun/Gun.pro
     - cd Gun
