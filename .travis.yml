@@ -1,0 +1,13 @@
+language: cpp
+compiler: gcc
+install:
+  - sudo add-apt-repository ppa:canonical-qt5-edgers/qt5-proper -y
+  - sudo add-apt-repository ppa:ubuntu-sdk-team/ppa -y
+  - sudo apt-get update
+  - sudo apt-get install qt-sdk libqt5svg5-dev qttools5-dev -y
+  
+  script:
+    - git clean -dfx
+    - qmake Gun/Gun.pro
+    - cd Gun
+    - make -j2
