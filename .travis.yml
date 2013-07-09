@@ -13,6 +13,7 @@ script:
     - qmake Gun/Gun.pro
     - cd Gun
     - make -j2
+    - cd ..
     - mkdir vera++
     - cd vera++
     - git init
@@ -23,4 +24,5 @@ script:
     - cmake ..
     - make -j
     - sudo make install
+    - cd ../Gun    
     - vera++ --root . -R get_all_subDirs *
