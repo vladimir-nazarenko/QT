@@ -5,6 +5,8 @@ install:
   - sudo add-apt-repository ppa:ubuntu-sdk-team/ppa -y
   - sudo apt-get update
   - sudo apt-get install qt-sdk libqt5svg5-dev qttools5-dev -y
+  - sudo apt-get install libboost-all-dev
+  - sudo apt-get install tcl8.5
   
 script:
     - git clean -dfx
