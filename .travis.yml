@@ -11,3 +11,14 @@ script:
     - qmake Gun/Gun.pro
     - cd Gun
     - make -j2
+    - mkdir vera++
+    - cd vera++
+    - git init
+    - git clone https://bitbucket.org/verateam/vera.git
+    - cd vera
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j
+    - make install
+    - vera++ --root . -R get_all_subDirs *
