@@ -6,8 +6,7 @@ install:
   - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu raring universe"
   - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu raring main"
   - sudo apt-get update
-  - sudo apt-get install libboost-all-dev
-  - sudo apt-get install tcl-dev
+  - sudo apt-get install libboost-system1.49.0 libboost-wave1.49.0 tcl8.5
   - sudo apt-get install vera++
   - sudo add-apt-repository -r "deb http://archive.ubuntu.com/ubuntu raring universe"
   - sudo add-apt-repository -r "deb http://archive.ubuntu.com/ubuntu raring main"
