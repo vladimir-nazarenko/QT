@@ -18,4 +18,4 @@ script:
     - cd ..
     - sudo cp -r buildScripts/vera++/rules /usr/lib/vera++/scripts/rules
     - sudo cp -r buildScripts/vera++/profiles /usr/lib/vera++/profiles
-    - vera++ -profile allRules
+    - vera++ -profile allRules .
