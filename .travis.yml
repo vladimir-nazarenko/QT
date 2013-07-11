@@ -3,16 +3,12 @@ compiler: gcc
 install:
   - sudo add-apt-repository ppa:canonical-qt5-edgers/qt5-proper -y
   - sudo add-apt-repository ppa:ubuntu-sdk-team/ppa -y
-  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu raring universe"
-  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu raring main"
   - sudo apt-get update
   - sudo apt-get install libboost-system1.49.0 libboost-wave1.49.0 tcl8.5
   - sudo apt-get install vera++
-  - sudo apt-get install qt-sdk libqt5svg5-dev qttools5-dev -y
   
 script:
     - git clean -dfx
     - qmake Gun/Gun.pro
     - cd Gun
     - make -j2
-    - vera++ --root . -R get_all_subDirs *
