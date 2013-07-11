@@ -8,11 +8,14 @@ install:
   - sudo apt-get update
   - sudo apt-get install libboost-system1.49.0 libboost-wave1.49.0 tcl8.5
   - sudo apt-get install vera++
-  - sudo apt-get install qt-sdk libqt5svg5-dev qttools5-dev -y
+  - sudo apt-get install gdb libbotan-1.10-0 libgeoclue0 libphonon-dev libphonon4 libpulse-mainloop-glib0 libqt53d5 libqt5clucene5 libqt5concurrent5 libqt5core5 libqt5dbus5 libqt5declarative5 libqt5designer5 libqt5designercomponents5 libqt5gui5 libqt5help5 libqt5location5 libqt5network5 libqt5opengl5 libqt5opengl5-dev libqt5printsupport5 libqt5qml5 libqt5quick5 libqt5quickparticles5 libqt5quicktest5 libqt5script5 libqt5sensors5 libqt5sql5 libqt5sql5-sqlite libqt5svg5 libqt5test5 libqt5v8-5 libqt5webkit5 libqt5widgets5 libqt5xml5 libqtcore4 libqtgui4 libutempter0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-sync0 libxcb-xfixes0 phonon-backend-null qdbus qmlscene qt5-default qt5-qmake qtbase5-dev qtbase5-dev-tools qtchooser qtdeclarative5-dev xbitmaps xterm libqt5svg5-dev qttools5-dev -y
   
 script:
     - git clean -dfx
     - qmake Gun/Gun.pro
     - cd Gun
     - make -j2
-    - vera++ --root . -R get_all_subDirs *
+    - cd ..
+    - sudo cp -r buildScripts/vera++/rules /usr/lib/vera++/scripts/rules
+    - sudo cp -r buildScripts/vera++/profiles /usr/lib/vera++/profiles
+    - vera++ -profile allRules
