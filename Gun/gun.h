@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include <qgraphicsscene.h>
 #include <qgraphicsitem.h>
