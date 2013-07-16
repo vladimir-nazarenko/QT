@@ -4,8 +4,7 @@
 proc getFiles { folder } {
   set listOfFiles ""
   foreach sourceFile [glob -nocomplain -type f -directory $folder *] {
-  puts $sourceFile
-    if [regexp -nocase {.*[.]cpp$} $sourceFile ] {
+    if [regexp -nocase {.*[.]cpp$|.*[.]h$} $sourceFile ] {
       set listOfFiles [concat $listOfFiles $sourceFile]
     }
   }
@@ -15,7 +14,6 @@ proc getFiles { folder } {
   return $listOfFiles
 }
 
-set parameters "-p allRules"
 set parameters [concat $parameters [getFiles [pwd]]]
 set fo [open "buildScripts/vera++/params" "w" ]
 puts $fo $parameters
