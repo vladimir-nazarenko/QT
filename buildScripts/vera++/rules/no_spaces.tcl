@@ -10,3 +10,7 @@ proc checkTabs { fileName } {
     incr lineCount
     }
 }
+
+foreach fileName [getSourceFileNames] {
+  checkTabs $fileName
+}

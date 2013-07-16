@@ -16,5 +16,6 @@ script:
     - cd Gun
     - make -j2
     - cd ..
-    - sudo sh buildScripts/CopyToVLib.sh
-    - vera++ -profile allRules Gun/*.h
+    - sudo sh buildScripts/vera++/CopyToVLib.sh
+    - tclsh buildScripts/vera++/generatePaths.tcl
+    - vera++ -profile allRules - <buildScripts/vera++/params

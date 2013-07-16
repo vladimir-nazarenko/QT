@@ -19,3 +19,7 @@ proc checkGuards { fileName } {
     puts "$fileName: No include guard in header file"
   }
 }
+
+foreach fileName [getSourceFileNames] {
+  checkGuards $fileName
+}
