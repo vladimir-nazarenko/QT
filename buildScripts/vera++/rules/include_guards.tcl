@@ -3,7 +3,7 @@
 
 proc checkGuards { fileName } {
   if {![regexp -nocase {.*.h$} $fileName] } { return }
-  set lineCount 0
+  set lineCount 1 
   set guardFound 0
   foreach line [getAllLines $fileName] {
     if {[regexp {^[\t ]*#pragma once[\t\r\n ]*} $line] } {

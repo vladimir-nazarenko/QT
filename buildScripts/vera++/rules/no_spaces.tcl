@@ -8,7 +8,7 @@ proc checkTabs { fileName } {
       report $fileName $lineCount "String starts with spaces"
     }
     incr lineCount
-    }
+  }
 }
 
 foreach fileName [getSourceFileNames] {
