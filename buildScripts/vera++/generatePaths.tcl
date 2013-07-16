@@ -14,6 +14,7 @@ proc getFiles { folder } {
   return $listOfFiles
 }
 
+set parameters ""
 set parameters [concat $parameters [getFiles [pwd]]]
 set fo [open "buildScripts/vera++/params" "w" ]
 puts $fo $parameters
