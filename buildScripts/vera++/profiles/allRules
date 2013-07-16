@@ -1,7 +1,5 @@
 #!/usr/bin/tclsh
 
 set rules {
-  no_spaces
-  include_guards
-  LineLength
+  main
 }
